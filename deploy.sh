@@ -35,6 +35,7 @@ kubectl apply -f ./kubernetes/frontend-service.yml
 # echo "Adding the ingress..."
 
 minikube addons enable ingress
+minikube addons enable ingress-dns
 kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 kubectl apply -f ./kubernetes/ingress.yml
 

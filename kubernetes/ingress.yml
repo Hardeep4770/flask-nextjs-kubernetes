@@ -3,19 +3,21 @@ kind: Ingress
 metadata:
   name: flask-ingress
   annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1 # For 2 sub url use: /$2
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
     - host: flaskapp.com
       http:
           paths:
-            - path: /api/v1/book
+            - path: /?(.*) # For sub url use: /appui(/|$)(.*)
               pathType: Prefix
               backend:
                 service:
                   name: frontend-service
                   port:
                     number: 3001
-            - path: /
+            - path: /api/?(.*) # For sub url and their sub urls use: /back(/|$)(.*)
               pathType: Prefix
               backend:
                 service:
