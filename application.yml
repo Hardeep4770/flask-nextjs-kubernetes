@@ -15,7 +15,7 @@ spec:
     namespace: myapp
 
   syncPolicy:
-    sycOptions:
+    syncOptions:
     - CreateNamespace=true
 
     automated:
