@@ -13,6 +13,7 @@ spec:
       releaseName: mongodb
       valueFiles:
         - test-mongodb.yaml
+        - https://github.com/Hardeep4770/flask-nextjs-kubernetes.git
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubeseal
