@@ -5,16 +5,15 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  sources:
-    - repoURL: https://github.com/Hardeep4770/flask-nextjs-kubernetes.git
-      targetRevision: HEAD
-      ref: myRepo                                 # repo is available via symlink "myRepo"
-    - repoURL: https://github.com/helm/charts
-      targetRevision: master
-      path: incubator/mongodb               # path "incubator/elasticsearch" is used to generate manifests
-      helm:
-        valueFiles:
-          - $myRepo/test-mongodb.yaml                  # values.yaml is located in source with reference name $myRepo
+  source:
+    repoURL: https://github.com/Hardeep4770/flask-nextjs-kubernetes.git
+    argetRevision: HEAD
+    path: ""              
+    helm:
+      repoURL: https://github.com/helm/charts
+      chart: "incubator/mongodb"
+      chartVersion: "1.0.0"
+      valueFiles: ['test-mongodb.yaml']                  
     # chart: mongodb
     # repoURL: https://github.com/bitnami/charts/tree/main/bitnami/mongodb
     # targetRevision: HEAD
