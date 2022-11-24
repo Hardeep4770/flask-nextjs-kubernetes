@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/bitnami/charts
-    chart: bitnami/mongodb
+    path: bitnami/mongodb
     targetRevision: HEAD
     helm:
       releaseName: mongodb
