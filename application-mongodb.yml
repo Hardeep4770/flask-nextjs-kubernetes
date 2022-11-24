@@ -4,16 +4,56 @@ metadata:
   name: mongodb
   namespace: argocd
 spec:
-  project: default
-  source:
-    repoURL: https://github.com/Hardeep4770/flask-nextjs-kubernetes.git
-    argetRevision: HEAD
-    path: ""              
-    helm:
-      repoURL: https://github.com/helm/charts
-      chart: "incubator/mongodb"
-      chartVersion: "1.0.0"
-      valueFiles: ['test-mongodb.yaml']                  
+# https://developer.ibm.com/articles/gitops-process-reference-implementation/
+# # Install the ApplicationSet
+  generators:
+  - list:
+      elements:
+      - environment: staging
+        cluster: 'https://kubernetes.default.svc'
+        repoURL: 'https://github.com/Hardeep4770/flask-nextjs-kubernetes.git'
+        branch: 'main'
+        valuesFile: 'https://github.com/Hardeep4770/flask-nextjs-kubernetes/blob/main/test-mongodb.yaml'
+        targetNamespace: 'my-mongodb'
+      # - environment: prod
+      #   cluster: 'https://api.sh-prod-2.luban.cdl.ibm.com:6443'
+      #   repoURL: 'https://${github-enterprise}/oss-circus/robot-shop-gitops'
+      #   branch: 'production'
+      #   valuesFile: 'values-production.yaml'
+      #   targetNamespace: 'robot-shop-prod'
+  template:
+    metadata:
+      name: 'happy-helm-app-{{environment}}'
+    spec:      
+      destination:
+        namespace: '{{targetNamespace}}'
+        server: '{{cluster}}'
+      source:
+        path: bitnami/mongodb
+        repoURL: https://github.com/bitnami/charts
+        targetRevision: '{{branch}}'
+        helm:
+          valueFiles:
+            - '{{valuesFile}}'
+          values: |
+            targetNamespace: {{targetNamespace}}
+      project: happy-{{environment}}
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+        automated:
+          prune: true
+          selfHeal: true
+  # project: default
+  # source:
+  #   repoURL: https://github.com/Hardeep4770/flask-nextjs-kubernetes.git
+  #   argetRevision: HEAD
+  #   path: ""              
+  #   helm:
+  #     repoURL: https://github.com/helm/charts
+  #     chart: "incubator/mongodb"
+  #     chartVersion: "1.0.0"
+  #     valueFiles: ['test-mongodb.yaml']                  
     # chart: mongodb
     # repoURL: https://github.com/bitnami/charts/tree/main/bitnami/mongodb
     # targetRevision: HEAD
@@ -22,6 +62,6 @@ spec:
     #   valueFiles:
     #     - test-mongodb.yaml
     #     - https://github.com/Hardeep4770/flask-nextjs-kubernetes.git
-  destination:
-    server: "https://kubernetes.default.svc"
-    namespace: my-mongodb
+  # destination:
+  #   server: "https://kubernetes.default.svc"
+  #   namespace: my-mongodb
