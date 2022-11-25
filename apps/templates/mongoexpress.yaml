@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp-mongo-express
+  name: mongoexpress
   namespace: default
 spec:
   project: default
@@ -12,7 +12,7 @@ spec:
     path: kubernetes/mymongoexpress
   destination:
     server: https://kubernetes.default.svc
-    namespace: mymongoexpress
+    namespace: default
 
   syncPolicy:
     syncOptions:
