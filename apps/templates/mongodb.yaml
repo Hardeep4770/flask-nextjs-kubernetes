@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mongodb
+  namespace: default
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  project: default
+  source:
+    chart: mongodb
+    helm:
+      values: |
+        architecture: replicaset
+        replicaCount: 3
+        persistence:
+          storageClass: "standard"
+          size: 512Mi
+        auth:
+          rootPassword: secret-root-pwd
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 6.0.3
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

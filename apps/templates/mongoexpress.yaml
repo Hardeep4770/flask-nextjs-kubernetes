@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp-argo-application
+  name: myapp-mongo-express
   namespace: default
 spec:
   project: default
@@ -9,10 +9,10 @@ spec:
   source:
     repoURL: https://github.com/Hardeep4770/flask-nextjs-kubernetes.git
     targetRevision: HEAD
-    path: kubernetes
+    path: kubernetes/mymongoexpress
   destination:
     server: https://kubernetes.default.svc
-    namespace: myapp
+    namespace: mymongoexpress
 
   syncPolicy:
     syncOptions:
