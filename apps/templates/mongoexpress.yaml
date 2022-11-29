@@ -12,7 +12,7 @@ spec:
     targetRevision: HEAD
     path: kubernetes/mymongoexpress/
   destination:
-    server: { { .Values.spec.destination.server } }
+    server: https://kubernetes.default.svc
     namespace: myexpress
 
   syncPolicy:
