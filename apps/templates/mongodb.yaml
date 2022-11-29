@@ -7,8 +7,8 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    server: https://kubernetes.default.svc
-    namespace: default
+    server: { { .Values.spec.destination.server } }
+    namespace: mymongo
   project: default
   source:
     chart: mongodb
@@ -24,6 +24,8 @@ spec:
     repoURL: https://mongodb.github.io/helm-charts
     targetRevision: 13.4.4
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true

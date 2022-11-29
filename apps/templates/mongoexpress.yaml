@@ -12,10 +12,12 @@ spec:
     targetRevision: HEAD
     path: kubernetes/mymongoexpress/
   destination:
-    server: https://kubernetes.default.svc
-    namespace: default
+    server: { { .Values.spec.destination.server } }
+    namespace: myexpress
 
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
     automated:
       selfHeal: true
       prune: true
