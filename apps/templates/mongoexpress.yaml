@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/Hardeep4770/flask-nextjs-kubernetes.git
     targetRevision: HEAD
-    path: kubernetes/mymongoexpress/
+    path: kubernetes/mymongoexpress
   destination:
     server: https://kubernetes.default.svc
     namespace: myexpress
