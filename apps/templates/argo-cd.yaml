@@ -11,7 +11,7 @@ spec:
     namespace: default
   project: default
   source:
-    path: argo-cd
+    path: charts/argo-cd
     repoURL: https://github.com/Hardeep4770/flask-nextjs-kubernetes.git
     targetRevision: HEAD
   syncPolicy:
