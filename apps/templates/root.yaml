@@ -4,6 +4,7 @@ metadata:
   name: root
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  namespace: argocd
 spec:
   project: default
 
