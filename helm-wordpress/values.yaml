@@ -1,14 +1,15 @@
 mariadb:
   enabled: false
 
-service:
-  type: NodePort
-
-wordpressPassword: foo
-
-externalDatabase:
-  host: localhost
-  user: bn_wordpress
-  password: ""
-  database: bitnami_wordpress
-  port: 3306
+wordpress:
+  wordpressPassword: foo
+  mariadb:
+    enabled: false
+  externalDatabase:
+    host: localhost
+    user: bn_wordpress
+    password: ""
+    database: bitnami_wordpress
+    port: 3306
+  service:
+    type: NodePort
