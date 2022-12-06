@@ -21,8 +21,8 @@ spec:
           size: 512Mi
         auth:
           rootPassword: secret-root-pwd
-    repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 13.4.4
+    repoURL: https://mongodb.github.io/helm-charts
+    targetRevision: 1.4.1
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

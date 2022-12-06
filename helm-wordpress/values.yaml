@@ -1,0 +1,11 @@
+mariadb:
+  enabled: false
+
+wordpressPassword: foo
+
+externalDatabase:
+  host: localhost
+  user: bn_wordpress
+  password: ""
+  database: bitnami_wordpress
+  port: 3306
