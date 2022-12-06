@@ -1,6 +1,9 @@
 mariadb:
   enabled: false
 
+service:
+  type: NodePort
+
 wordpressPassword: foo
 
 externalDatabase:
