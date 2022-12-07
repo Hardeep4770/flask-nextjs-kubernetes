@@ -1,6 +1,3 @@
-global:
-  storageClass: "standard"
-
 auth:
   rootPassword: root
   database: testwp
