@@ -7,9 +7,9 @@ wordpress:
     enabled: false
   externalDatabase:
     host: localhost
-    user: bn_wordpress
-    password: ""
-    database: bitnami_wordpress
+    user: wp_user
+    password: "root"
+    database: testwp
     port: 3306
   service:
     type: NodePort
