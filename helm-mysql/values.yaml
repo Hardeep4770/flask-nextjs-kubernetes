@@ -2,7 +2,7 @@ global:
   storageClass: "standard"
 
 auth:
-  rootPassword: "root"
+  rootPassword: root
   database: testwp
   username: wp_user
-  password: "root"
+  password: root
