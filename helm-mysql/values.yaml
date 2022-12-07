@@ -1,0 +1,8 @@
+global:
+  storageClass: "standard"
+
+auth:
+  rootPassword: "root"
+  database: testwp
+  username: wp_user
+  password: "root"
