@@ -1,5 +1,5 @@
 auth:
-  rootPassword: root
+  rootPassword: rootpass
   database: testwp
   username: wp_user
-  password: root
+  password: rootpass1
