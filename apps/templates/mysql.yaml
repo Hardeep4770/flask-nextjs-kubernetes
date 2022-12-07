@@ -12,7 +12,7 @@ spec:
     path: helm-mysql
   destination:
     server: https://kubernetes.default.svc
-    namespace: my-mysql
+    namespace: default
 
   syncPolicy:
     syncOptions:
