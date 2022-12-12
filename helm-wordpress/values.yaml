@@ -12,6 +12,6 @@ wordpress:
     database: testwp
     port: 3306
   service:
-    type: LoadBalancer
+    type: NodePort
   ingress:
     enabled: true
