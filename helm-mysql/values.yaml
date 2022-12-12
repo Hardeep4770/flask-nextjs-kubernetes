@@ -1,32 +1,14 @@
-root:
-  ## MySQL admin password
-  ## ref: https://github.com/bitnami/bitnami-docker-mysql#setting-the-root-password-on-first-run
-  ##
-  password: Rootpass123
-  ## Use existing secret (ignores root, db and replication passwords)
-  # existingSecret:
-  ##
-  ## Option to force users to specify a password. That is required for 'helm upgrade' to work properly.
-  ## If it is not force, a random password will be generated.
-  forcePassword: false
-
-db:
-  ## MySQL username and password
-  ## ref: https://github.com/bitnami/bitnami-docker-mysql#creating-a-database-user-on-first-run
-  ##
-  user: wp_user
-  password: quantex@123
-  ## Password is ignored if existingSecret is specified.
-  ## Database to create
-  ## ref: https://github.com/bitnami/bitnami-docker-mysql#creating-a-database-on-first-run
-  ##
-  name: testwp
-  ## Option to force users to specify a password. That is required for 'helm upgrade' to work properly.
-  ## If it is not force, a random password will be generated.
-  forcePassword: true
-
-# auth:
-#   rootPassword: "Rootpass1"
-#   database: "testwp"
-#   username: "wp_user"
-#   password: "Wppass1"
+auth:
+  rootPassword: secretpassword
+  database: testwp
+  username: app_database
+  password: wppass1
+mysql:
+  auth:
+    rootPassword: secretpassword
+    database: testwp
+    username: app_database
+    password: wppass1
+  primary:
+    livenessProbe:
+      initialDelaySeconds: 600
