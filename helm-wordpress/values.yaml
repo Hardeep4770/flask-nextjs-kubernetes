@@ -11,5 +11,7 @@ wordpress:
     password: quantex@123
     database: testwp
     port: 3306
+  service:
+    type: NodePort
   ingress:
     enabled: true
