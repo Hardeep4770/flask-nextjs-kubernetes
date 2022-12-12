@@ -2,8 +2,8 @@ mysql:
   auth:
     rootPassword: secretpassword
     database: testwp
-    username: app_database
-    password: wppass1
+    username: wp_user
+    password: quantex@123
   primary:
     livenessProbe:
       initialDelaySeconds: 600
