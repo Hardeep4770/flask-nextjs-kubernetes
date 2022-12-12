@@ -13,3 +13,5 @@ wordpress:
     port: 3306
   service:
     type: LoadBalancer
+  ingress:
+    enabled: true
