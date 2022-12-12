@@ -6,7 +6,7 @@ wordpress:
   mariadb:
     enabled: false
   externalDatabase:
-    host: localhost
+    host: mysql.default.svc.cluster.local
     user: wp_user
     password: quantex@123
     database: testwp
