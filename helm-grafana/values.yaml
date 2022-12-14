@@ -21,11 +21,13 @@ grafana:
         - name: MySQL
           type: mysql
           url: mysql.default.svc.cluster.local:3306
+          isDefault: true
           database: testwp
           access: proxy
           user: wp_user
-          password: quantex@123
           jsonData:
             maxOpenConns: 0 # Grafana v5.4+
             maxIdleConns: 2 # Grafana v5.4+
             connMaxLifetime: 14400 # Grafana v5.4+
+          secureJsonData:
+            password: quantex@123
