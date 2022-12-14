@@ -27,3 +27,7 @@ grafana:
           basicAuth: true
           basicAuthUser: wp_user
           basicAuthPassword: quantex@123
+          jsonData:
+            maxOpenConns: 0 # Grafana v5.4+
+            maxIdleConns: 2 # Grafana v5.4+
+            connMaxLifetime: 14400 # Grafana v5.4+
