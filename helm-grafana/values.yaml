@@ -23,8 +23,6 @@ grafana:
           url: mysql.default.svc.cluster.local:3306
           database: testwp
           access: proxy
-          isDefault: true
-          basicAuth: true
           user: wp_user
           password: quantex@123
           jsonData:
