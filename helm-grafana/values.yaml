@@ -25,8 +25,8 @@ grafana:
           access: proxy
           isDefault: true
           basicAuth: true
-          basicAuthUser: wp_user
-          basicAuthPassword: quantex@123
+          user: wp_user
+          password: quantex@123
           jsonData:
             maxOpenConns: 0 # Grafana v5.4+
             maxIdleConns: 2 # Grafana v5.4+
