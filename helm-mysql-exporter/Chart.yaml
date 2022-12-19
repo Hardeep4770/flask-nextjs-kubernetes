@@ -1,6 +1,6 @@
 apiVersion: v2
 name: mysql-exporter
-description: A MySql Helm chart for Kubernetes
+description: A MySql Exporter Helm chart for Kubernetes
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -24,5 +24,5 @@ appVersion: "1.0"
 
 dependencies:
   - name: prometheus-mysql-exporter
-    version: 9.4.4
+    version: 1.11.1
     repository: https://prometheus-community.github.io/helm-charts
