@@ -1,7 +1,8 @@
 mysql-exporter:
   mysql:
-    db: testwp
-    host: mysql.default.svc.cluster.local
-    port: 3306
-    user: wp_user
-    pass: quantex@123
+    server:
+      db: testwp
+      host: mysql.default.svc.cluster.local
+      port: 3306
+      user: wp_user
+      pass: quantex@123
