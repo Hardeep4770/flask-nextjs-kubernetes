@@ -10,3 +10,8 @@ prometheus:
       ##
       hosts:
         - prometheus.wordpress.local
+    prometheus.yml:
+      scrape_configs:
+        - job_name: "mysql"
+          static_configs:
+            - targets: ["localhost:9104"]
