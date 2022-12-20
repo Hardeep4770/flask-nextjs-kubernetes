@@ -5,5 +5,5 @@ mysql-exporter:
     user: wp_user
     pass: quantex@123
   env:
-  - name: DATA_SOURCE_NAME
-    value: "wp_user:quantex@123@tcp(mysql.default.svc.cluster.local:3306)/testwp"
+    - name: DATA_SOURCE_NAME
+      value: "wp_user:quantex@123@(mysql.default.svc.cluster.local:3306)/testwp"
