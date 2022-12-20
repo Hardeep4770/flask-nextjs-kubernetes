@@ -11,8 +11,16 @@ prometheus:
       hosts:
         - prometheus.wordpress.local
     prometheus.yml:
+      scrape_interval: 15s
       scrape_configs:
         - job_name: "mysql"
           static_configs:
-            - targets: 
-              - localhost:9104
+            - targets: ['192.168.49.2:9104']
+      relabel_configs:
+        - source_labels: [__address__]
+          target_label: __param_target
+        - source_labels: [__param_target]
+          target_label: instance
+        - target_label: __address__
+          # The mysqld_exporter host:port
+          replacement: localhost:9104
