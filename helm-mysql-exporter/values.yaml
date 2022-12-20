@@ -1,4 +1,4 @@
-mysql-exporter:
+prometheus-mysql-exporter:
   mysql:
     db: testwp
     host: mysql.default.svc.cluster.local
@@ -7,3 +7,10 @@ mysql-exporter:
   env:
     - name: DATA_SOURCE_NAME
       value: "wp_user:quantex@123@(mysql.default.svc.cluster.local:3306)/testwp"
+
+  #     prometheus-mysql-exporter:
+  # mysqldExporter:
+  #   enabled: true
+  #   extraEnv:
+  #     - name: DATA_SOURCE_NAME
+  #       value: "wp_user:quantex@123@(mysql.default.svc.cluster.local:3306)/testwp"
